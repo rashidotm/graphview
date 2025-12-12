@@ -202,7 +202,11 @@ class GraphViewController {
 
   void jumpToFocusedNode() {
     if (focusedNode != null) {
-      _state?.jumpToOffset(focusedNode!.position, true);
+      final nodeCenter = Offset(
+        focusedNode!.position.dx + focusedNode!.width / 2,
+        focusedNode!.position.dy + focusedNode!.height / 2,
+      );
+      _state?.jumpToOffset(nodeCenter, true);
       focusedNode = null;
     }
   }
